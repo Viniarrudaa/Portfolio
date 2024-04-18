@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfolio</title>
+  <link rel="shortcut icon" href="imagem/imagem.jfif" type="image/x-icon">
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="Web/icons8-lion-ink-96.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
+<!--Fim da Fontes-->
+
+<!--Icon-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!--Fim do Icon-->
+<script src="formulario.js" defer></script>
+
+<body>
+    <header><!--Cabeçalho-->
+        <div class="interface"> 
+            <div class="logo"> <!--Minha logo (Vinicius Arruda )-->
+                <a href="#"></a>
+                <h1 id="logotitulo">Vinicius</h1><!--Vinicius-->
+                <p id="logoparagrafo">Arruda</p><!--Arruda-->
+            </div>
+            <nav class="menu-desktop"> <!--Lugar do menu (Inicio, Sobre, Novidade e Projetos)-->
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="novidade.html" target="_blank">Novidade</a></li>
+                    <li><a href="sobre.html" target="_blank">Sobre</a></li>
+                    <li><a href="projetos.html" target="_blank">Projetos</a></li>
+                </ul>
+            </nav>
+            <div class="btn-contrato"> <!--Meu Butão de contato-->
+                <a href="contato.html" target="_blank">
+                    <button>Contato</button>
+                </a>
+                </div>
+        </div>
+      <hr class="linha">
+    </header>
+
+    <main> <!--Parte principal-->
+       <section class="topodosite"> <!--Lugar onde ficará a parte principal-->
+        <div class="interface">
+            <div class="flex">
+                <div class="txt-topodosite">
+                    <h1>DESENVOLVEDOR  <span>WEB.</span></h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus quaerat provident fugiat placeat minima voluptate repudiandae eligendi corrupti rerum nesciunt, aut dolorum cum distinctio excepturi qui aspernatur in quisquam magnam.</p>
+                    <div class="btn-contrato">
+                        <a href="https://www.instagram.com/_vinizzxz/">
+                            <button>Entre em contato</button>
+                        </a>
+                    </div>
+
+                </div>  <!--Txt-topo do site esquerdo-->
+
+                <div class="topoimagem">
+                    <img src="imagem5.png" alt="">
+
+                </div>  <!--imagem-topo site direito--> 
+            </div> <!--Flex-->
+        </div>   <!--Interface-->
+      </section>   <!--Topo do site-->
+
+      <section class="especialidade">
+        <div class="interface">
+            <h2 id="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
+            <div class="flex">
+                <div class="especialidade-box">
+                    <i class="bi bi-pc-display-horizontal"></i>
+                    <h3>Desenvolvedor web</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic at nihil assumenda totam impedit voluptates voluptatem corporis nobis, labore,
+                         quidem quos itaque qui accusamus rem quod beatae dolorem sapiente ipsam!</p>
+                </div>
+                <div class="especialidade-box">
+                    <i class="bi bi-pencil-square"></i>
+                    <h3>Design</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic at nihil assumenda totam impedit voluptates voluptatem corporis nobis, labore,
+                         quidem quos itaque qui accusamus rem quod beatae dolorem sapiente ipsam!</p>
+                </div>
+                <div class="especialidade-box">
+                    <i class="bi bi-person-raised-hand"></i>
+                    <h3>Liderança</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic at nihil assumenda totam impedit voluptates voluptatem corporis nobis, labore,
+                         quidem quos itaque qui accusamus rem quod beatae dolorem sapiente ipsam!</p>
+                </div>
+              
+
+            </div><!--Flex-->
+        </div><!--interface-->
+      </section>
+
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const formDesktop = document.querySelector(".contato__registro");
+        const fullNameDesktop = document.getElementById("nome");
+        const emailDesktop = document.getElementById("email");
+        const phoneDesktop = document.getElementById("numero");
+        const subjectDesktop = document.getElementById("assunto");
+        const messDesktop = document.getElementById("message");
+
+
+        const formMobile = document.querySelector(".contato__registro__celular");
+        const fullNameMobile = document.getElementById("nomecelular");
+        const emailMobile = document.getElementById("emailcelular");
+        const phoneMobile = document.getElementById("numerocelular");
+        const subjectMobile = document.getElementById("assuntocelular");
+        const messMobile = document.getElementById("messagecelular");
+
+        function sendEmail(fullName, email, phone, subject, mess) {
+            const bodyMessage = `Nome completo: ${fullName.value}<br> Email:${email.value}<br> Celular:${phone.value}<br> Assunto:${subject.value}<br> Messagem:${mess.value}`;
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "lucas.afvr2006@gmail.com",
+                Password: "27DD77A1A9A6DE8D28D1649B29634E6FC65A",
+                To: "lucas.afvr2006@gmail.com",
+                From: "lucas.afvr2006@gmail.com",
+                Subject: subject.value,
+                Body: bodyMessage
+            }).then(
+                message => {
+                    if (message == "OK") {
+                        Swal.fire({
+                            title: "Realizado!",
+                            text: "Mensagem foi enviado com sucesso!",
+                            icon: "success"
+                        });
+                    }
+                }
+            );
+        }
+
+        function checkInputs(fullName, email, phone, subject, mess) {
+            const items = [fullName, email, phone, subject, mess];
+
+            for (const item of items) {
+                item.addEventListener("keyup", () => {
+                    if (item.value.trim() !== "") {
+                        item.classList.remove("erro");
+                        item.parentElement.classList.remove("erro");
+                    } else {
+                        item.classList.add("erro");
+                        item.parentElement.classList.add("erro");
+                    }
+                });
+            }
+        }
+
+        function checkEmail(email) {
+            const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
+            const errorTxtEmail = email.nextElementSibling;
+
+            if (!email.value.match(emailRegex)) {
+                email.classList.add("erro");
+                email.parentElement.classList.add("erro");
+
+                if (email.value.trim() !== "") {
+                    errorTxtEmail.innerText = "Coloque um endereço de email válido";
+                } else {
+                    errorTxtEmail.innerText = "Seu e-mail não pode ser deixado em branco";
+                }
+            } else {
+                email.classList.remove("erro");
+                email.parentElement.classList.remove("erro");
+            }
+        }
+
+        formDesktop.addEventListener("submit", (e) => {
+            e.preventDefault();
+            checkInputs(fullNameDesktop, emailDesktop, phoneDesktop, subjectDesktop, messDesktop);
+            checkEmail(emailDesktop);
+
+            if (!fullNameDesktop.classList.contains("erro") && !emailDesktop.classList.contains("erro") && !phoneDesktop.classList.contains("erro") && !subjectDesktop.classList.contains("erro") && !messDesktop.classList.contains("erro")) {
+                sendEmail(fullNameDesktop, emailDesktop, phoneDesktop, subjectDesktop, messDesktop);
+
+                formDesktop.reset();
+                return false;
+            }
+        });
+
+        formMobile.addEventListener("submit", (e) => {
+            e.preventDefault();
+            checkInputs(fullNameMobile, emailMobile, phoneMobile, subjectMobile, messMobile);
+            checkEmail(emailMobile);
+
+            if (!fullNameMobile.classList.contains("erro") && !emailMobile.classList.contains("erro") && !phoneMobile.classList.contains("erro") && !subjectMobile.classList.contains("erro") && !messMobile.classList.contains("erro")) {
+                sendEmail(fullNameMobile, emailMobile, phoneMobile, subjectMobile, messMobile);
+
+                formMobile.reset();
+                return false;
+            }
+        });
+    </script>
+    </main>
+
+</html>
